@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Anton&family=Chewy&family=Contrail+One&family=Jockey+One&family=Londrina+Solid:wght@300&family=Rancho&family=Squada+One&display=swap');
 
 body {
     margin: 0%;
@@ -14,10 +14,26 @@ body {
 
 .title{
     position: absolute;
-    top: 40%;
-    left: 40%;
+    top: 30%;
+    left: 35%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+.title h1{
+    font-family: squada one;
+    font-size: 85px;
+    text-shadow: 10px 10px black;
+    color: rgb(2, 2, 125);
+    letter-spacing: 4px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+}
+
+.title h2{
+    color: rgb(1, 1, 187);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
 }
