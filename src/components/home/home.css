@@ -14,8 +14,8 @@ body {
 
 .title{
     position: absolute;
-    top: 30%;
-    left: 35%;
+    top: 25%;
+    left: 30%;
     display: flex;
     align-items: center;
     justify-content: center;
