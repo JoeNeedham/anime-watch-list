@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './navbar.css'
 
 function Navbar() {
@@ -20,7 +21,7 @@ function Navbar() {
                 </div>
             <div class="nav_links_content">
                 <ul class="nav_link_list">
-                    <li><a href="#" class="nav_link active">Sign In</a></li>
+                    <li><Link style={{textDecoration: 'none', color: '#afafaf'}}to='/login'>Sign In</Link></li>
                 </ul>
             </div>
         </div>
