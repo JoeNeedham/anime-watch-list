@@ -42,8 +42,8 @@ label {
 }
 input {
   width: 400px;
-  background: none;
-  color: white;
+  background: rgb(232, 240, 254);
+  color: black;
   border: 2px solid #7C7C7C;
   padding: .8rem;
 }
@@ -66,4 +66,13 @@ input {
   opacity: 0.9;
   color: white;
   margin-top: -10px;
+}
+
+.new-here {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  opacity: 0.9;
+  color: white;
+  margin-top: 20px;
 }
