@@ -22,7 +22,6 @@ function Login() {
                     
                     <input type="submit" value="Sign In" class="button" />
                     <a href="#0" class="forgot-password">Forgot your password?</a>
-                    {/* <a href="#0" class="new-here">New here? Sign up now</a> */}
                     <Link class="new-here" to='/signup'>New here? Sign up now</Link>
                 </form>          
             </div>

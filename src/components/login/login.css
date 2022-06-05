@@ -76,3 +76,7 @@ input {
   color: white;
   margin-top: 20px;
 }
+
+form :nth-child(3) {
+  cursor: pointer;
+}
