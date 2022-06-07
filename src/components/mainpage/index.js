@@ -1,21 +1,23 @@
 import React from 'react'
 import { MainNavBar } from '../index'
 import './mainpage.css'
+import { AnimeCard } from '../index'
 
 
-function MainPage() {
+function MainPage(props) {
     return (
         <div className="wrapper">
         <MainNavBar />
-            <div className='m-title'>
+            {/* <div className='m-title'>
                 <h1>What Are You Watching?</h1>
-            </div>
+            </div> */}
             <div className='section'>
                 <div className='movies'>
-                    <h2 style={{color: "white"}}>ANIME</h2>
-                </div>
-                <div className='movie-details'>
-                    <h2 style={{color: "white"}}>ANIME DETAILS</h2>
+                    {props.topAnime.map(anime => (
+                        <AnimeCard
+                            anime={anime}
+                            key={anime.mal_id} />
+                    ))}                
                 </div>
             </div>
         </div>

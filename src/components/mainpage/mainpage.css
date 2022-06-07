@@ -1,5 +1,6 @@
 .wrapper {
     display: block;
+    overflow: scroll;
 }
 
 .m-title{
@@ -22,14 +23,7 @@
 }
 
 .movies{
-    width: 50%;
+    width: 100%;
     height: 100%;
     margin-left: 50px;
-}
-
-.movie-details{
-    width: 50%;
-    height: 100%;
-    margin-left: 50px;
-
 }
