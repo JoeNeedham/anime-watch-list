@@ -43,7 +43,7 @@
 }
 .search-bar {
 	background: transparent;
-	width: 50%;
+	width: 500px;
 	transition: box-shadow 300ms ease;
 }
 .search-bar input {

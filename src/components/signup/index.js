@@ -8,7 +8,7 @@ function Signup() {
         <div className="wrapper">
             <Navbar />
             <div>
-                <form action="" method="post">
+                <form className='login-form' action="" method="post">
                     <div class="form-field">
                         <label for="email">Email Address</label>
                         <input type="email" id="email" name="email" />
