@@ -34,7 +34,7 @@ function App() {
 		GetTopAnime();
 	}, []);
 
-  console.log(topAnime)
+  // console.log(topAnime)
 
 	
   return (
