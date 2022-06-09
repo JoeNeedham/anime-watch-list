@@ -41,6 +41,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route exact path='/' element={<Home/>} />
+        {/* <Route exact path='/singlepage' element={<SinglePage/>} /> */}
+        <Route exact path='/login' element={<Login />} />
+        <Route exact path='/signup' element={<Signup />} />
         <Route exact path='/home' element={<MainPage
             HandleSearch={HandleSearch}
             search={search}
@@ -48,9 +51,7 @@ function App() {
 					  animeList={animeList}
             topAnime={topAnime}
         />} 
-          />
-        <Route exact path='/login' element={<Login />} />
-        <Route exact path='/signup' element={<Signup />} />
+        />
       </Routes>
     </BrowserRouter>
   );

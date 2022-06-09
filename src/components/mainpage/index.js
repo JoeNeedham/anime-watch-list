@@ -1,10 +1,18 @@
-import React from 'react'
+import { React, useState } from 'react'
 import { MainNavBar } from '../index'
 import './mainpage.css'
 import { AnimeCard } from '../index'
 
 
 function MainPage(props) {
+    const [single, setSingle] = useState([]);
+
+	const onClickHandler = async (id) => {
+		const data = await fetch(`https://api.jikan.moe/v4/anime/${id}`)
+			.then(res => res.json());
+			setSingle(data)
+			console.log(single)
+	}
     if(!props.search){
         return (
             <div className="wrapper">
@@ -21,7 +29,8 @@ function MainPage(props) {
                         {props.topAnime.map(anime => (
                             <AnimeCard
                                 anime={anime}
-                                key={anime.mal_id} />
+                                key={anime.mal_id}
+                                onclickhandler={onClickHandler} />
                         ))}                
                     </div>
                     {/* <div className='movies'>
@@ -50,7 +59,9 @@ function MainPage(props) {
                     {props.animeList.map(anime => (
                         <AnimeCard
                             anime={anime}
-                            key={anime.mal_id} />
+                            key={anime.mal_id}
+                            onclickhandler={onClickHandler}
+                            />
                     ))}                
                 </div>
             </div>

@@ -1,21 +1,13 @@
-import { React, useState } from 'react'
+import { React } from 'react'
 import { Link } from 'react-router-dom'
 import './animecard.css'
 
-function AnimeCard({anime}) {
-	const [single, setSingle] = useState([]);
-
-	const onClickHandler = async () => {
-		const data = await fetch(`https://api.jikan.moe/v4/anime/${anime.mal_id}`)
-			.then(res => res.json());
-			setSingle(data)
-			console.log(single)
-	}
-	
+function AnimeCard({anime, onclickhandler}) {
+	const { mal_id } = anime
 	return (
 		<div className="anime-card">
 			<Link to=''
-				onClick={onClickHandler}
+				onClick={()=> onclickhandler(mal_id)}
 			>
 				<figure>
 					<img 
