@@ -51,10 +51,10 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route exact path='/' element={<Home/>} />
-        <Route exact path='/singlepage' element={<SinglePage
+        { single ? <Route exact path='/singlepage' element={<SinglePage
           singleAnime={single}
           />}
-          />
+          /> : <></> }
         <Route exact path='/login' element={<Login />} />
         <Route exact path='/signup' element={<Signup />} />
         <Route exact path='/home' element={<MainPage

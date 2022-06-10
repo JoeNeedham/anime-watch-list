@@ -1,24 +1,22 @@
 import { React, useEffect, useState } from 'react'
-import { MainNavBar } from '../index'
 import './singlepage.css'
 
 
 function SinglePage(props) {
-    // const [loading, setLoading] = useState(true);
+    // const [loading, setLoading] = useState([]);
     
     useEffect(() => {
-        // setLoading(true);
-        console.log('loading');
+            // setLoading(true);
+            console.log(props.singleAnime.data.title);
         // props.singleAnime ? setLoading(false) : setLoading(true);
-        console.log(props.singleAnime)
-    },[props.singleAnime])
+    },[props.singleAnime]);
 
     return (
         <div className="wrapper">
             <div className="sp-section">
                 <div className="sp-subsection">
                     {/* <img src={props.singleAnime.data.images.jpg.image_url} alt="" /> */}
-                    { props.singleAnime && <img src={props.singleAnime.data.images.jpg.image_url}/> }
+                    { props.singleAnime ? <img src={props.singleAnime.data.images.jpg.image_url}/> : null }
                 </div>
                 <div className="sp-subsection">
 
