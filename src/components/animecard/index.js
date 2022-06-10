@@ -6,7 +6,7 @@ function AnimeCard({anime, onclickhandler}) {
 	const { mal_id } = anime
 	return (
 		<div className="anime-card">
-			<Link to=''
+			<Link to='/singlepage'
 				onClick={()=> onclickhandler(mal_id)}
 			>
 				<figure>

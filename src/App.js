@@ -2,6 +2,7 @@ import { Home } from "./components"
 import { Login } from "./components"
 import { Signup } from "./components";
 import { MainPage } from "./components";
+import { SinglePage } from "./components";
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { React, useState, useEffect } from "react";
 
@@ -9,6 +10,7 @@ function App() {
   const [animeList, SetAnimeList] = useState([]);
 	const [topAnime, SetTopAnime] = useState([]);
 	const [search, SetSearch] = useState("");
+  const [single, setSingle] = useState([]);
 
 	const GetTopAnime = async () => {
 		const temp = await fetch(`https://api.jikan.moe/v3/top/anime/1/bypopularity`)
@@ -30,9 +32,17 @@ function App() {
 		SetAnimeList(temp.results);
 	}
 
+	const onClickHandler = async (id) => {
+		const data = await fetch(`https://api.jikan.moe/v4/anime/${id}`)
+			.then(res => res.json());
+			setSingle(data)
+			console.log(single)
+	}
+
 	useEffect(() => {
 		GetTopAnime();
 	}, []);
+
 
   // console.log(topAnime)
 
@@ -41,7 +51,10 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route exact path='/' element={<Home/>} />
-        {/* <Route exact path='/singlepage' element={<SinglePage/>} /> */}
+        <Route exact path='/singlepage' element={<SinglePage
+          singleAnime={single}
+          />}
+          />
         <Route exact path='/login' element={<Login />} />
         <Route exact path='/signup' element={<Signup />} />
         <Route exact path='/home' element={<MainPage
@@ -50,6 +63,7 @@ function App() {
             SetSearch={SetSearch}
 					  animeList={animeList}
             topAnime={topAnime}
+            onclickhandler={onClickHandler}
         />} 
         />
       </Routes>

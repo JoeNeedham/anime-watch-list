@@ -1,0 +1,12 @@
+.sp-section{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.sp-subsection{
+    width: 50%;
+    height: 100%;
+    margin-left: 50px;
+    justify-content: center;
+}
