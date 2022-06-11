@@ -9,7 +9,7 @@ function Home() {
             <Navbar />
             <div className="title">
                 <h1>ANIME HOARDER</h1>
-                <h2>WHAT ARE YOU WATCHING NEXT?</h2>
+                {/* <h2>WHAT ARE YOU WATCHING NEXT?</h2> */}
             </div>
         </div>
     )

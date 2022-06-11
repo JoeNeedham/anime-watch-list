@@ -2,11 +2,57 @@
     width: 100%;
     height: 100%;
     display: flex;
+    margin-top: -50px;
 }
-
 .sp-subsection{
     width: 50%;
     height: 100%;
-    margin-left: 50px;
+    margin-left: -50px;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
+.sp-subsection p {
+    color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    font-family: anton;
+    font-size: 1.1rem;
+}
+.single-anime-pic{
+    width: 50%;
+    margin-top: -5px;
+}
+.sp-subsection2{
+    width: 50%;
+    height: 100%;
+    margin-left: -65px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.sp-subsection2 p {
+    color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    font-family: anton;
+    font-size: 1.1rem;
+}
+/* .sp-subsection2:last-child > button{
+    flex: none;
+} */
+.add-button{
+    background-color: #3d69d0;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    font-size: 15px;
+    padding: 11px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.add-button:hover{
+    filter: brightness(.7);
+}
+
