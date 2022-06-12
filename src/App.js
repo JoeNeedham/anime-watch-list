@@ -7,10 +7,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { React, useState, useEffect } from "react";
 
 function App() {
-  const [animeList, SetAnimeList] = useState([]);
+ 	const [animeList, SetAnimeList] = useState([]);
 	const [topAnime, SetTopAnime] = useState([]);
 	const [search, SetSearch] = useState("");
-  const [single, setSingle] = useState([]);
+  	const [single, setSingle] = useState([]);
 
 	const GetTopAnime = async () => {
 		const temp = await fetch(`https://api.jikan.moe/v3/top/anime/1/bypopularity`)
@@ -36,39 +36,47 @@ function App() {
 		const data = await fetch(`https://api.jikan.moe/v4/anime/${id}`)
 			.then(res => res.json());
 			setSingle(data)
-			console.log(single)
+			// Set data in localStorage
+			localStorage.setItem('singleData', JSON.stringify(data));
+			// Remove data in localStorage
+			// console.log(single)
 	}
 
 	useEffect(() => {
 		GetTopAnime();
 	}, []);
 
+	window.onload = function() {
+		if(single === undefined || []) {
+		setSingle(JSON.parse(localStorage.getItem('singleData')));
+		}
+	}
 
   // console.log(topAnime)
 
 	
-  return (
-    <BrowserRouter>
-		<Routes>
-			<Route exact path='/' element={<Home/>} />
-			{ single ? <Route exact path='/singlepage' element={<SinglePage
-			singleAnime={single}
-			/>}
-			/> : <></> }
-			<Route exact path='/login' element={<Login />} />
-			<Route exact path='/signup' element={<Signup />} />
-			<Route exact path='/home' element={<MainPage
-				HandleSearch={HandleSearch}
-				search={search}
-				SetSearch={SetSearch}
-				animeList={animeList}
-				topAnime={topAnime}
-				onclickhandler={onClickHandler}
-			/>} 
-			/>
-		</Routes>
-    </BrowserRouter>
-  );
+	return (
+		<BrowserRouter>
+			<Routes>
+				<Route exact path='/' element={<Home/>} />
+				<Route exact path='/singlepage' element={<SinglePage
+				singleAnime={single}
+				/>}
+				/>
+				<Route exact path='/login' element={<Login />} />
+				<Route exact path='/signup' element={<Signup />} />
+				<Route exact path='/home' element={<MainPage
+					HandleSearch={HandleSearch}
+					search={search}
+					SetSearch={SetSearch}
+					animeList={animeList}
+					topAnime={topAnime}
+					onclickhandler={onClickHandler}
+				/>} 
+				/>
+			</Routes>
+		</BrowserRouter>
+	);
 }
 
 export default App;

@@ -55,4 +55,15 @@
 .add-button:hover{
     filter: brightness(.7);
 }
-
+.loader{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.loader img{
+    height: 135px;
+    width: 235px;
+    background: transparent;
+}

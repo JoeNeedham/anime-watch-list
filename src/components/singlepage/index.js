@@ -1,10 +1,12 @@
 import { React, useEffect, useState } from 'react'
 import { Navbar } from '../index';
 import './singlepage.css'
+import loader from './output-onlinegiftools.gif'
 
 
 function SinglePage(props) {
     const [loading, setLoading] = useState(true);
+    // const [refresh, setRefresh] = useState([]);
     
     useEffect(() => {
             if(props.singleAnime) {
@@ -12,11 +14,17 @@ function SinglePage(props) {
                     setLoading(false);
                     }, 2000);
             }
-            console.log(props.singleAnime)
+            // console.log(props.singleAnime)
+            // setRefresh(props.singleAnime)
+
     },[props.singleAnime]);
 
     if(loading === true) {
-        return <h1>LOADING</h1>
+        return <div className='wrapper'>
+            <div className="loader">
+                <img src={loader} alt="" />
+            </div>
+        </div>
     } else
 
     return (
