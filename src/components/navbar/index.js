@@ -1,8 +1,15 @@
-import React from 'react'
+import { React, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './navbar.css'
 
 function Navbar() {
+    
+    const [Login, setLogin] = useState(false)
+
+    const handleClick = () =>{
+        setLogin(true);
+    }
+
     return (
     <div className="nav">
         <div className="nav_content">
@@ -19,11 +26,14 @@ function Navbar() {
                         </li>         
                     </ul>
                 </div>
+            
             <div className="nav_links_content">
+            { !Login ? 
                 <ul className="nav_link_list">
                     <li><Link style={{textDecoration: 'none', color: '#afafaf'}}to='/'>Home</Link></li>
-                    <li><Link style={{textDecoration: 'none', color: '#afafaf'}}to='/login'>Sign In</Link></li>
+                    <li><Link style={{textDecoration: 'none', color: '#afafaf'}}to='/login'>Sign In</Link></li>                       
                 </ul>
+                : null }
             </div>
         </div>
     </div>

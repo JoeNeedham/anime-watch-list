@@ -49,24 +49,24 @@ function App() {
 	
   return (
     <BrowserRouter>
-      <Routes>
-        <Route exact path='/' element={<Home/>} />
-        { single ? <Route exact path='/singlepage' element={<SinglePage
-          singleAnime={single}
-          />}
-          /> : <></> }
-        <Route exact path='/login' element={<Login />} />
-        <Route exact path='/signup' element={<Signup />} />
-        <Route exact path='/home' element={<MainPage
-            HandleSearch={HandleSearch}
-            search={search}
-            SetSearch={SetSearch}
-					  animeList={animeList}
-            topAnime={topAnime}
-            onclickhandler={onClickHandler}
-        />} 
-        />
-      </Routes>
+		<Routes>
+			<Route exact path='/' element={<Home/>} />
+			{ single ? <Route exact path='/singlepage' element={<SinglePage
+			singleAnime={single}
+			/>}
+			/> : <></> }
+			<Route exact path='/login' element={<Login />} />
+			<Route exact path='/signup' element={<Signup />} />
+			<Route exact path='/home' element={<MainPage
+				HandleSearch={HandleSearch}
+				search={search}
+				SetSearch={SetSearch}
+				animeList={animeList}
+				topAnime={topAnime}
+				onclickhandler={onClickHandler}
+			/>} 
+			/>
+		</Routes>
     </BrowserRouter>
   );
 }

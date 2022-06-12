@@ -4,7 +4,7 @@ import './mainnavbar.css'
 
 
 function MainNavBar(props) {
- 
+
     return (
     <div className="nav">
         <div className="nav_content">
