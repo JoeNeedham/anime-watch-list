@@ -6,7 +6,7 @@ function Navbar() {
     
     const [Login, setLogin] = useState(false)
 
-    const handleClick = () =>{
+    const handleClick = () => {
         setLogin(true);
     }
 

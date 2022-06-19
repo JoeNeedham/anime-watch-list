@@ -1,9 +1,15 @@
 import { React } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './mainnavbar.css'
 
 
 function MainNavBar(props) {
+
+    const handleLogout = () => {
+		// localStorage.removeItem("token");
+        console.log('signed out')
+        
+	};
 
     return (
     <div className="nav">
@@ -36,7 +42,7 @@ function MainNavBar(props) {
                 <ul className="nav_link_list">
                     <li><Link style={{textDecoration: 'none', color: '#afafaf'}}to='/'>Home</Link></li>
                     <li><Link style={{textDecoration: 'none', color: '#afafaf'}}to='/myanimelist'>My Anime List</Link></li>
-                    <li><Link style={{textDecoration: 'none', color: '#afafaf'}}to='/login'>Sign Out</Link></li>
+                    <li><Link  onClick={handleLogout}  style={{textDecoration: 'none', color: '#afafaf'}}to='/login'>Sign Out</Link></li>
                 </ul>
             </div>
         </div>

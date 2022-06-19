@@ -39,7 +39,6 @@ function Login() {
                         <label htmlFor="email">Email Address</label>
                         <input
                             type="email"
-                            id="email"
                             name="email"
                             onChange={handleChange}
                             value={data.email}
@@ -51,15 +50,14 @@ function Login() {
                         <label htmlFor="password">Password</label>
                         <input
                             type="password"
-                            id="password"
                             name="password"
                             onChange={handleChange}
                             value={data.password}
                             required
                         />
-                        {error && <div>{error}</div>}
+                        {error && <div> <p style={{color: "white"}}>{error}</p> </div>}
                     </div>
-                    <input type="submit" value="Sign In" className="button" />
+                    <input type="submit" value="Sign In" className="sign-in-button" />
                     <a href="#0" className="forgot-password">Forgot your password?</a>
                     <Link className="new-here" to='/signup'>New here? Sign up now</Link>
                 </form>          

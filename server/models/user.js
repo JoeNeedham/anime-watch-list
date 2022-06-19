@@ -5,14 +5,14 @@ const passwordComplexity = require("joi-password-complexity");
 
 
 const userSchema = new mongoose.Schema({
-    userName: {type:String, required:true },
+    username: {type:String, required: true },
     email: { type:String, required: true },
     password: { type:String, required: true },
 });
 
 userSchema.methods.generateAuthToken = function () {
-    const token = jwt.sign({_id:this._id}, process.env.JWTPPRIVATEKEY,{expiresIn:"7d"})
-    
+    const token = jwt.sign({ id: this.id}, process.env.JWTPRIVATEKEY,{expiresIn:"7d"});
+    console.log(token);
     return token
 };
 
@@ -20,8 +20,8 @@ const User = mongoose.model("user", userSchema);
 
 const validate = (data) => {
     const schema = Joi.object({
-        userName: Joi.string().required().label("username"),
         email: Joi.string().required().label("email"),
+        username: Joi.string().required().label("username"),
         password: passwordComplexity().required().label("password")
     });
     return schema.validate(data)
