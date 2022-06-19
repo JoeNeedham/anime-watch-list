@@ -1,25 +1,64 @@
-import React from 'react'
+import { React, useState } from 'react'
 import { Navbar } from '../index'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 import './login.css'
 
 
 function Login() {
+    const [data, setData] = useState({ email: "", password: ""});
+    const [error, setError] = useState("");
+
+    const handleChange = ({ currentTarget: input }) => {
+        setData({ ...data, [input.name]: input.value });
+    };
+    
+    const handleSubmit = async (e) => {
+		e.preventDefault();
+        try {
+            const url ="http://localhost:8080/api/auth";
+            const { data: res } = await axios.post(url, data);
+            localStorage.setItem("token", res.data);
+            window.location = "/";
+        } catch (error) {
+            if (
+				error.response &&
+				error.response.status >= 400 &&
+				error.response.status <= 500
+			) {
+				setError(error.response.data.message);
+			}
+        }
+    }
     return (
         <div className="wrapper">
             <Navbar />
             <div>
-                <form className='login-form' action="" method="post">
+                <form className='login-form' onSubmit={handleSubmit}>
                     <div className="form-field">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" />
+                        <label htmlFor="email">Email Address</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            onChange={handleChange}
+                            value={data.email}
+                            required
+                        />
                     </div>
                     
                     <div className="form-field">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" />
+                        <label htmlFor="password">Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            onChange={handleChange}
+                            value={data.password}
+                            required
+                        />
+                        {error && <div>{error}</div>}
                     </div>
-                    
                     <input type="submit" value="Sign In" className="button" />
                     <a href="#0" className="forgot-password">Forgot your password?</a>
                     <Link className="new-here" to='/signup'>New here? Sign up now</Link>
